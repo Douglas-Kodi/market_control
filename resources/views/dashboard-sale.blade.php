@@ -10,7 +10,6 @@
     -->
     <h3 class="text-center mt-5">Vendas efetuadas</h3>
     <div class="col-8 m-auto">
-        @csrf
         <div class="table-responsive">
             <table class="table text-center table-hover">
                 <thead class="table-dark">

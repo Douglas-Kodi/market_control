@@ -48,15 +48,13 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        $cad=$this->objSale->create([
+        $this->objSale->create([
             'id_user'=>$request->id_user,
             'id_market'=>$request->id_market,
             'quant'=>$request->quant,
             'price'=>$request->quant * ModelMarket::find($request->get('id_market'))->total,
         ]);
-        if($cad){
-            return redirect('home');
-        }
+        return redirect('home');
     }
 
     /**
@@ -111,6 +109,6 @@ class SaleController extends Controller
     public function destroy($id)
     {
         $del=$this->objSale->destroy($id);
-        return($del)?"sim":"não";
+        return($del)?"Yes":"No";
     }
 }

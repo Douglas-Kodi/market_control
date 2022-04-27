@@ -36,7 +36,7 @@
             <table class="table text-center mt-5">
                 <thead class="table-dark">
                     <tr>
-                        <td>Valor pago por unidade + Imposto (R$)</td>
+                        <td>Valor pago por unidade com Imposto (R$)</td>
                         <td>Quantidade * Valor com imposto (R$)</td>
                         <td>Valor pago total sem imposto (R$)</td>
                         <td>Valor total pago de imposto (R$)</td>
@@ -46,29 +46,29 @@
                     <tr>
                         <td>
                         @php
-                            $v=$market->price;
-                            $p=$market->percentage;
-                            $r=$v+($v*($p/100));
-                            echo number_format($r,2,",",".");
+                            $price=$market->price;
+                            $percentage=$market->percentage;
+                            $total_per_unidade=$price+($price*($percentage/100));
+                            echo number_format($total_per_unidade,2,",",".");
                         @endphp
                         </td>
                         <td>
                         @php
-                            $q=$market->quant;
-                            $rq= $r * $q;
-                            echo number_format($rq,2,",",".");
+                            $quant=$market->quant;
+                            $total= $total_per_unidade * $quant;
+                            echo number_format($total,2,",",".");
                         @endphp    
                         </td>
                         <td>
                         @php
-                            $rs= $v * $q;
-                            echo number_format($rs,2,",",".");
+                            $total_without= $price * $quant;
+                            echo number_format($total_without,2,",",".");
                         @endphp   
                         </td>
                         <td>
                         @php
-                            $rt=$rq - $rs;
-                            echo number_format($rt,2,",",".");
+                            $total_percentage=$total - $total_without;
+                            echo number_format($total_percentage,2,",",".");
                         @endphp 
                         </td>
                     </tr>

@@ -9,7 +9,6 @@
     </div>
 
     <div class="col-8 m-auto">
-        @csrf
         <div class="table-responsive">
             <table class="table text-center table-hover">
                 <thead class="table-dark">
@@ -35,10 +34,10 @@
                         <th scope="row">{{$sales->quant}}</th>
                         <th scope="row">{{$sales->price}}
                             @php
-                                $quantidade = $sales->quant;
-                                $valor = $sales->price;
-                                $vvalor = $quantidade * $valor;
-                                $total = $total + $vvalor;
+                                $quant = $sales->quant;
+                                $price = $sales->price;
+                                $a_price = $quant * $price;
+                                $full_price = $full_price + $a_price;
                             @endphp
                         </th>
                         <th scope="row">
@@ -56,7 +55,7 @@
                         <td>Valor total (R$)</td>
                         <td width="50%">
                             @php
-                                echo number_format($total,2,",",".");
+                                echo number_format($full_price,2,",",".");
                             @endphp
                         </td>
                     </tr>

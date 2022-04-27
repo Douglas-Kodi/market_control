@@ -92,6 +92,6 @@ class IndexController extends Controller
     public function destroy($id)
     {
         $del=$this->objSale->destroy($id);
-        return($del)?"sim":"não";
+        return($del)?"Yes":"No";
     }
 }

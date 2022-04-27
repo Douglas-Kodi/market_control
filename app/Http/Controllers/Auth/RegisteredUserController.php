@@ -49,7 +49,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        if(auth()->check() AND auth()->user()->level==2){
+        if((auth()->check()) && (auth()->user()->level==2)){
             return redirect('users');
         }
         else{

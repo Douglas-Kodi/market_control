@@ -23,11 +23,15 @@
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         @php $id = Auth::id(); @endphp
-        @if(auth()->check() AND auth()->user()->level==1)<li><a href="{{url("home/$id")}}" class="nav-link px-2 text-white">Meu Carrinho</a></li>@endif
-        @if(auth()->check() AND auth()->user()->level==2)<li><a href="{{url('sales')}}" class="nav-link px-2 text-white">Vendas</a></li>@endif
-        @if(auth()->check() AND auth()->user()->level==2)<li><a href="{{url('types')}}" class="nav-link px-2 text-white">Classificação</a></li>@endif
-        @if(auth()->check() AND auth()->user()->level==2)<li><a href="{{url('markets')}}" class="nav-link px-2 text-white">Mercadorias</a></li>@endif
-        @if(auth()->check() AND auth()->user()->level==2)<li><a href="{{url('users')}}" class="nav-link px-2 text-white">Usuários</a></li>@endif
+        @if(auth()->check() AND auth()->user()->level==1)
+            <li><a href="{{url("home/$id")}}" class="nav-link px-2 text-white">Meu Carrinho</a></li>
+        @endif
+        @if(auth()->check() AND auth()->user()->level==2)
+            <li><a href="{{url('sales')}}" class="nav-link px-2 text-white">Vendas</a></li>
+            <li><a href="{{url('types')}}" class="nav-link px-2 text-white">Classificação</a></li>
+            <li><a href="{{url('markets')}}" class="nav-link px-2 text-white">Mercadorias</a></li>
+            <li><a href="{{url('users')}}" class="nav-link px-2 text-white">Usuários</a></li>
+        @endif
         </ul>
         <div class="text-end">
             @if (Route::has('login'))

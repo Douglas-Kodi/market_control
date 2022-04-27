@@ -26,10 +26,7 @@ class MarketController extends Controller
     public function index()
     {
         $market=$this->objMarket->paginate(8);
-        //$market=$this->objMarket->all()->sortBy('id');
         return view('dashboard-market', compact('market'));
-        //dd($this->objType->all());
-        //dd($this->objType->find(1)->relMarkets);
     }
 
     /**
@@ -52,7 +49,7 @@ class MarketController extends Controller
     public function store(MarketRequest $request)
     {   
         if($request->hasFile('image')){
-            $destination_path = 'public/img/market';
+            $destination_path = 'public/img/market/';
             $image = $request->file('image');
             $image_name = $image->GetClientOriginalName();
             $path = $request->file('image')->storeAs($destination_path,$image_name);
@@ -116,7 +113,7 @@ class MarketController extends Controller
     public function update(MarketRequest $request, $id)
     {
         if($request->hasFile('image')){
-            $destination_path = 'public/img/market';
+            $destination_path = 'public/img/market/';
             $image = $request->file('image');
             $image_name = $image->GetClientOriginalName();
             $path = $request->file('image')->storeAs($destination_path,$image_name);
@@ -153,6 +150,6 @@ class MarketController extends Controller
     {
         //$del=ModelMarket::destroy($id);
         $del=$this->objMarket->destroy($id);
-        return($del)?"sim":"não";
+        return($del)?"Yes":"No";
     }
 }

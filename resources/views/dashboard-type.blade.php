@@ -9,7 +9,6 @@
     </div>
 
     <div class="col-8 m-auto">
-        @csrf
         <div class="table-responsive">
             <table class="table text-center table-hover">
                 <thead class="table-dark">

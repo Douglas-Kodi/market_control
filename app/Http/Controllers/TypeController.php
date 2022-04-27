@@ -41,12 +41,10 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        $cad=$this->objType->create([
+        $this->objType->create([
             'name'=>$request->name,
         ]);
-        if($cad){
-            return redirect('types');
-        }
+        return redirect('types');
     }
 
     /**
@@ -92,6 +90,6 @@ class TypeController extends Controller
     public function destroy($id)
     {
         $del=$this->objType->destroy($id);
-        return($del)?"sim":"não";
+        return($del)?"Yes":"No";
     }
 }
