@@ -53,7 +53,7 @@ class MarketController extends Controller
             $image = $request->file('image');
             $image_name = $image->GetClientOriginalName();
             $path = $request->file('image')->storeAs($destination_path,$image_name);
-            $cad=$this->objMarket->create([
+            $this->objMarket->create([
                 'name'=>$request->name,
                 'quant'=>$request->quant,
                 'price'=>$request->price,
@@ -63,7 +63,7 @@ class MarketController extends Controller
                 'image'=>$image_name,
             ]);
         }else{
-            $cad=$this->objMarket->create([
+            $this->objMarket->create([
                 'name'=>$request->name,
                 'quant'=>$request->quant,
                 'price'=>$request->price,
@@ -72,10 +72,9 @@ class MarketController extends Controller
                 'id_type'=>$request->id_type,
             ]);
         }
-        
-        if($cad){
-            return redirect('markets');
-        }
+         
+        return redirect('markets');
+    
     }
 
     /**
@@ -148,7 +147,6 @@ class MarketController extends Controller
      */
     public function destroy($id)
     {
-        //$del=ModelMarket::destroy($id);
         $del=$this->objMarket->destroy($id);
         return($del)?"Yes":"No";
     }
