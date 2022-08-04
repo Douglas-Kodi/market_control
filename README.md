@@ -1,1 +1,3 @@
-My first repository in Laravel :)
+# Market Control
+
+### My first repository in Laravel :)
